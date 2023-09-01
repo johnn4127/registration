@@ -87,13 +87,15 @@ app.post('/register', async (req, res) => {
         email: email,
         password: password,
         repassword: repassword
+
+    })
     try {
         // Hash the password
         const saltRounds = 10; // You can adjust the number of salt rounds as needed
         const hashedPassword = await bcrypt.hash(password, saltRounds);
     
         // Store the hashed password in the database
-        await imdb.create({
+        await imbd.create({
           name: name,
           email: email,
           password: hashedPassword, // Store the hashed password
