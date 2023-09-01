@@ -1,11 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f1f1f1;
-    margin: 0;
+    /* margin: 0; */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin-left: 50%;
+    margin-right: 50%;
+
   }
   
   .login-container {
@@ -34,8 +37,8 @@ body {
   }
   
   button {
-    background-color: #dce21a;
-    color: yellow;
+    background-color: #daba17f1;
+    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
@@ -43,5 +46,35 @@ body {
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: #b39800;
+  }
+  .container{
+    border: solid rgb(82, 71, 71) 1px;
+    border-radius: 2%;
+    display: flex;
+    width: 35vw;
+    height: 55vh;
+   justify-content: center;
+
+  }
+  img{
+    width: 107px;
+    height: 52px;
+   
+   
+   
+  }
+
+  legend{
+    font-size: 30px;
+    margin: 0.5em;
+  }
+  .content{
+    border: solid black 1px;
+    display: inline;
+    align-content: center;
+    justify-content: center;
+  }
+  .name, .email, .password, .password2{
+    display: grid;
   }

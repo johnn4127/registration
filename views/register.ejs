@@ -7,21 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/register" method="post">
-<div>
-    <legend> Registration </legend>
+    <div class="content">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png" alt="logo">
+<form class="container" action="/register" method="post">
+<div class="form">
+    <legend> Create account </legend>
     <% { %>
-        name: <input type="text" placeholder="First and last name" name="name"/><br><br>
-        email:<input type="email" name="email" value="dre@test.com" /><br><br>
-        password:<input type="password" placeholder="at least 8 characters" minlength="8" maxlength="25" name="password" value="secretpassword" /><br><br>
-        Re-enter password:<input type="password" name = "repassword" value = "secretpassword" /> <br><br>
+        <div class="name">
+        Your name <input type="text" placeholder="First and last name" name="name"/><br><br></div>
+        <div class="email">
+        Email <input type="email" name="email" value="dre@test.com" /><br><br></div>
+        <div class="password">
+        Password <input type="password" placeholder="at least 8 characters" minlength="8" maxlength="25" name="password" value="secretpassword" /><br><br></div>
+        <div class="password2">
+        Re-enter password <input type="password" name = "Re-enter Password" value = "secretpassword" /> <br><br></div>
     <% } %>
+    <button onclick="">Create your IMDb account</button>
 </div>
-<input type="submit" value="Create your IMDb account">
+<!-- <input type="submit" value="Create your IMDb account"> -->
 
-</form>     
-<link rel="stylesheet" href="/Users/corcoding/workspace/registration/public/imdb.css">
-
+</form> 
+</div>    
 </body>
 </html>
 
