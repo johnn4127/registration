@@ -73,15 +73,15 @@ app.post('/register', async (req, res) => {
     // if (existingUser) {
     //     return res.render('register', { error: "Username or email is already registered" });
     // }
-    logger.info({
-        level: 'info',
-        method:req.method,
-        body:req.body,
-        url:req.url,
-        parameters:req.params,
-        timestamp:new Date().toLocaleString()
-    })
-    await imdb.create({
+    // logger.info({
+    //     level: 'info',
+    //     method:req.method,
+    //     body:req.body,
+    //     url:req.url,
+    //     parameters:req.params,
+    //     timestamp:new Date().toLocaleString()
+    // })
+    await imbd.create({
         name: name,
         email: email,
         password: password,
