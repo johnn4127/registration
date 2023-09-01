@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const app = express();
 const winston = require("winston");
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt')const bcrypt = require('bcrypt')
 // const pg = require('pg-promise')();
 // const db = pg("postgres://fboxoopx:OdHhvN9QYSkHGv60t1mHCOl7TacIEbYG@batyr.db.elephantsql.com/fboxoopx");
 const {imbd} = require('./models')
@@ -11,6 +11,7 @@ app.use(express.static(__dirname + '/public'));
 const path = require('path')
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }))
+
 
 
 const logger = winston.createLogger({
