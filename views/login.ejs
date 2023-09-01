@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/imdb.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="content">
+        <div class="imgContainer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png" alt="logo"></div>
+<form class="container" action="/login" method="get">
+<div class="form">
+    <legend> Sign in </legend>
+    <% { %>
+        <div class="email">
+        Email <input type="email" name="email" value="" /><br><br></div>
+        <div class="password">
+        Password <input type="password" minlength="8" maxlength="25" name="password" value="" /><br><br></div>
+    <% } %>
+    <button onclick="">Sign in</button>
+    <div class="line"></div>
+    <p class="account">Keep me signed in. <a href="imdb.com/ap/signin?openid.return_to=https%3A%2F%2Fwww.imdb.com%2Fregistration%2Fap-signin-handler%2Fimdb_us&prevRID=SXJ7V1H521NGZTQ2GRCW&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=imdb_us&openid.mode=checkid_setup&siteState=eyJvcGVuaWQuYXNzb2NfaGFuZGxlIjoiaW1kYl91cyIsInJlZGlyZWN0VG8iOiJodHRwczovL3d3dy5pbWRiLmNvbS8_cmVmXz1sb2dpbiJ9&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&pageId=imdb_us&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&timestamp=1693581772000">Details</a></p>
+</div>
+<!-- <input type="submit" value="Create your IMDb account"> -->
+
+</form>
+<div class="line2"></div>  
+<div class="footer">
+    <a href="https://help.imdb.com/article/imdb/general-information/why-should-i-register-on-imdb/GHB62T7USTMYMCDC?ref_=cons_ap_ftr_help#">Help</a>
+    <a href="https://www.imdb.com/conditions">Conditions of Use</a>
+    <a href="https://www.imdb.com/privacy">Privacy Notice</a>
+</div>
+<p class="copyright">© 1996-2023, Amazon.com, Inc. or its affiliates<p>
+</div>
+  
+</body>
+</html>
+
+
+
