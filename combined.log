@@ -1,0 +1,3 @@
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 9:55:49 AM","url":"/"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 9:56:26 AM","url":"/"},"service":"user-service"}
+{"level":"info","message":{"body":{"email":"dre@test.com","name":"kk","password":"secretpassword","repassword":"secretpassword"},"level":"info","method":"POST","parameters":{},"timestamp":"9/1/2023, 10:13:27 AM","url":"/register"},"service":"user-service"}
