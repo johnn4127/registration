@@ -106,3 +106,4 @@
 {"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 11:47:04 AM","url":"/"},"service":"user-service"}
 {"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 11:47:25 AM","url":"/"},"service":"user-service"}
 {"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 11:52:43 AM","url":"/"},"service":"user-service"}
+{"level":"info","message":{"body":{"email":"s@b.com","name":"Sababu","password":"99999999","repassword":"99999999"},"level":"info","method":"POST","parameters":{},"timestamp":"9/1/2023, 11:08:11 AM","url":"/register"},"service":"user-service"}
