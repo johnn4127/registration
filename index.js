@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt')
 // const db = pg("postgres://fboxoopx:OdHhvN9QYSkHGv60t1mHCOl7TacIEbYG@batyr.db.elephantsql.com/fboxoopx");
 const {imbd} = require('./models')
 app.use(express.json())
+//link ejs/css
 app.use(express.static(__dirname + '/public'));
 const path = require('path')
 app.set('view engine', 'ejs');
