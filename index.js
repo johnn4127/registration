@@ -38,6 +38,59 @@ app.get('/', (req, res) => {
     res.render('register')
 })
 
+app.get('/login', (req, res) => {
+  logger.info({
+      level: 'info',
+      method:req.method,
+      body:req.body,
+      url:req.url,
+      parameters:req.params,
+      timestamp:new Date().toLocaleString()
+  })
+  res.render('login')
+})
+
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  // Check if email and password are provided
+  if (!email || !password) {
+    return res.status(400).send('Email and password are required');
+  }
+
+  try {
+    // Find a user in the database by their email
+    const user = await imbd.findOne({ where: { email: email } });
+
+    if (!user) {
+      return res.status(401).send('Invalid email or password');
+    }
+
+    // Compare the provided password with the hashed password from the database
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (passwordMatch) {
+      // Passwords match, so authentication is successful
+      logger.info({
+        level: 'info',
+        method: req.method,
+        body: req.body,
+        url: req.url,
+        parameters: req.params,
+        timestamp: new Date().toLocaleString(),
+      });
+
+      return res.send('Login successful');
+    } else {
+      // Passwords don't match, authentication failed
+      return res.status(401).send('Invalid email or password');
+    }
+  } catch (error) {
+    console.error('Error while logging in:', error);
+    res.status(500).send('Internal server error');
+  }
+});
+
 app.post('/register', async (req, res) => {
     const { name, email, password, repassword } = req.body;
     //checks all fields are entered
