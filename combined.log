@@ -202,3 +202,6 @@
 {"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 2:01:20 PM","url":"/"},"service":"user-service"}
 {"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 2:01:20 PM","url":"/"},"service":"user-service"}
 {"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 2:01:21 PM","url":"/"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 3:59:57 PM","url":"/"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 4:00:33 PM","url":"/login"},"service":"user-service"}
+{"level":"info","message":{"body":{"email":"thetonyvu@yahoo.com","password":"ilovefood"},"level":"info","method":"POST","parameters":{},"timestamp":"9/1/2023, 4:00:36 PM","url":"/login"},"service":"user-service"}
