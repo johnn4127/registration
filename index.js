@@ -1,7 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const app = express();
-// const winston = require("winston");
+const winston = require("winston");
+
 // const pg = require('pg-promise')();
 // const db = pg("postgres://fboxoopx:OdHhvN9QYSkHGv60t1mHCOl7TacIEbYG@batyr.db.elephantsql.com/fboxoopx");
 const {imbd} = require('./models')
@@ -12,7 +13,26 @@ const path = require('path')
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }))
 
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    defaultMeta: { service: 'user-service' },
+    transports: [
+
+      new winston.transports.File({ filename: 'error.log', level: 'error' }),
+      new winston.transports.File({ filename: 'combined.log' }),
+    ],
+  });
+
 app.get('/', (req, res) => {
+    logger.info({
+        level: 'info',
+        method:req.method,
+        body:req.body,
+        url:req.url,
+        parameters:req.params,
+        timestamp:new Date().toLocaleString()
+    })
     res.render('register')
 })
 
@@ -20,34 +40,47 @@ app.post('/register', async (req, res) => {
     const { name, email, password, repassword } = req.body;
     //checks all fields are entered
     if (!name || !email || !password || !repassword) {
-        return res.render('register', { error: "All fields are required" });
+        return res.status(400).send('All fields are required');
+      //  return res.render('register', { error: "All fields are required" }); --old code 
     }
     //check password matches repassword
     if (password !== repassword) {
-        return res.render('register', { error: "Passwords do not match" });
+        return res.status(400).send('Passwords do not match');
+        
     }
     //check password length
     if (password.length < 8) {
-        return res.render('register', { error: "Password should be at least 8 characters long" });
+        return res.status(400).send('Password should be at least 8 characters long');
+        // return res.render('register', { error: "" }); ---- change to send error to error log
     }
     // Validate password is numeric
-    if (!isNumeric(password)) {
-        return res.status(400).send('password should contain only numbers');
-    }
+    // console.log(typeof(password))
+    // if (typeof (password) !== 'number') {
+    //     return res.status(400).send('password should contain only numbers');
+        
+    // }
 
     // Check for URLs in password
-    if (containsUrl(password)) {
-        return res.status(400).send('Invalid input. URLs are not allowed');
-    }
-    // Validate email format
-    if (!isValidEmail(email)) {
-        return res.render('register', { error: "Invalid email format" });
-    }
-    // Check for existing username and email
-    const existingUser = users.find(user => user.username === name || user.email === email);
-    if (existingUser) {
-        return res.render('register', { error: "Username or email is already registered" });
-    }
+    // if (containsUrl(password)) {
+    //     return res.status(400).send('Invalid input. URLs are not allowed');
+    // }
+    // // Validate email format
+    // if (!isValidEmail(email)) {
+    //     return res.render('register', { error: "Invalid email format" });
+    // }
+    // // Check for existing username and email
+    // const existingUser = users.find(user => user.username === name || user.email === email);
+    // if (existingUser) {
+    //     return res.render('register', { error: "Username or email is already registered" });
+    // }
+    logger.info({
+        level: 'info',
+        method:req.method,
+        body:req.body,
+        url:req.url,
+        parameters:req.params,
+        timestamp:new Date().toLocaleString()
+    })
     await imdb.create({
         name: name,
         email: email,
