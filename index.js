@@ -1,7 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const app = express();
-// const winston = require("winston");
+const winston = require("winston");
+
 // const pg = require('pg-promise')();
 // const db = pg("postgres://fboxoopx:OdHhvN9QYSkHGv60t1mHCOl7TacIEbYG@batyr.db.elephantsql.com/fboxoopx");
 const {imbd} = require('./models')
@@ -12,7 +13,26 @@ const path = require('path')
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }))
 
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    defaultMeta: { service: 'user-service' },
+    transports: [
+
+      new winston.transports.File({ filename: 'error.log', level: 'error' }),
+      new winston.transports.File({ filename: 'combined.log' }),
+    ],
+  });
+
 app.get('/', (req, res) => {
+    logger.info({
+        level: 'info',
+        method:req.method,
+        body:req.body,
+        url:req.url,
+        parameters:req.params,
+        timestamp:new Date().toLocaleString()
+    })
     res.render('register')
 })
 
@@ -48,6 +68,14 @@ app.post('/register', async (req, res) => {
     if (existingUser) {
         return res.render('register', { error: "Username or email is already registered" });
     }
+    logger.info({
+        level: 'info',
+        method:req.method,
+        body:req.body,
+        url:req.url,
+        parameters:req.params,
+        timestamp:new Date().toLocaleString()
+    })
     await imdb.create({
         name: name,
         email: email,
