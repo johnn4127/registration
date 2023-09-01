@@ -2,3 +2,7 @@
 {"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 9:56:26 AM","url":"/"},"service":"user-service"}
 {"level":"info","message":{"body":{"email":"dre@test.com","name":"kk","password":"secretpassword","repassword":"secretpassword"},"level":"info","method":"POST","parameters":{},"timestamp":"9/1/2023, 10:13:27 AM","url":"/register"},"service":"user-service"}
 {"level":"info","message":{"body":{"email":"s@b.com","name":"Sababu","password":"99999999","repassword":"99999999"},"level":"info","method":"POST","parameters":{},"timestamp":"9/1/2023, 11:08:11 AM","url":"/register"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 12:15:43 PM","url":"/"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 12:15:45 PM","url":"/"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 12:15:48 PM","url":"/"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 12:16:37 PM","url":"/"},"service":"user-service"}

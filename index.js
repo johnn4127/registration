@@ -86,7 +86,7 @@ app.post('/register', async (req, res) => {
         name: name,
         email: email,
         password: password,
-        repassword: repassword
+        repassword: repassword})
     try {
         // Hash the password
         const saltRounds = 10; // You can adjust the number of salt rounds as needed
