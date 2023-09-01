@@ -2,16 +2,16 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const app = express();
 const winston = require("winston");
-
+const bcrypt = require('bcrypt')
 // const pg = require('pg-promise')();
 // const db = pg("postgres://fboxoopx:OdHhvN9QYSkHGv60t1mHCOl7TacIEbYG@batyr.db.elephantsql.com/fboxoopx");
 const {imbd} = require('./models')
 app.use(express.json())
 app.use(express.static(__dirname + '/public'));
 const path = require('path')
-
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }))
+
 
 const logger = winston.createLogger({
     level: 'info',
@@ -73,23 +73,34 @@ app.post('/register', async (req, res) => {
     // if (existingUser) {
     //     return res.render('register', { error: "Username or email is already registered" });
     // }
-    logger.info({
-        level: 'info',
-        method:req.method,
-        body:req.body,
-        url:req.url,
-        parameters:req.params,
-        timestamp:new Date().toLocaleString()
-    })
-    await imdb.create({
-        name: name,
-        email: email,
-        password: password,
-        repassword: repassword
+    try {
+        // Hash the password
+        const saltRounds = 10; // You can adjust the number of salt rounds as needed
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+    
+        // Store the hashed password in the database
+        await imdb.create({
+          name: name,
+          email: email,
+          password: hashedPassword, // Store the hashed password
+          repassword: hashedPassword, // Store the hashed password
+        });
+    
+        logger.info({
+          level: 'info',
+          method: req.method,
+          body: req.body,
+          url: req.url,
+          parameters: req.params,
+          timestamp: new Date().toLocaleString(),
+        });
+    
+        return res.render('register', { success: 'Account created successfully' });
+      } catch (error) {
+        console.error('Error creating user:', error);
+        res.status(500).render('register', { error: 'Failed to create user' });
+      }
     });
-
-    return res.render('register', { success: "Account created successfully" });
-})
 
 
 app.put("/", (req, res) => {
