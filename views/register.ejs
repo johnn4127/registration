@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="content">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png" alt="logo">
+        <div class="imgContainer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png" alt="logo"></div>
 <form class="container" action="/register" method="post">
 <div class="form">
     <legend> Create account </legend>
@@ -16,18 +17,31 @@
         <div class="name">
         Your name <input type="text" placeholder="First and last name" name="name"/><br><br></div>
         <div class="email">
-        Email <input type="email" name="email" value="dre@test.com" /><br><br></div>
+        Email <input type="email" name="email" value="" /><br><br></div>
         <div class="password">
-        Password <input type="password" placeholder="at least 8 characters" minlength="8" maxlength="25" name="password" value="secretpassword" /><br><br></div>
+        Password <input type="password" placeholder="at least 8 characters" minlength="8" maxlength="25" name="password" value="" /><br><br>
+            <div class="pConstraints"><img class="infoIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Info_i_blue.svg/1024px-Info_i_blue.svg.png">
+                Passwords must be at least 8 characters.</div>
+    </div>
         <div class="password2">
-        Re-enter password <input type="password" name = "repassword" value = "secretpassword" /> <br><br></div>
+        Re-enter password <input type="password" name = "repassword" value = "" /> <br><br></div>
     <% } %>
     <button onclick="">Create your IMDb account</button>
+    <div class="line"></div>
+    <p class="account">Already have an account? <a href="imdb.com/ap/signin?openid.return_to=https%3A%2F%2Fwww.imdb.com%2Fregistration%2Fap-signin-handler%2Fimdb_us&prevRID=SXJ7V1H521NGZTQ2GRCW&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=imdb_us&openid.mode=checkid_setup&siteState=eyJvcGVuaWQuYXNzb2NfaGFuZGxlIjoiaW1kYl91cyIsInJlZGlyZWN0VG8iOiJodHRwczovL3d3dy5pbWRiLmNvbS8_cmVmXz1sb2dpbiJ9&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&pageId=imdb_us&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&timestamp=1693581772000">Sign in</a></p>
 </div>
 <!-- <input type="submit" value="Create your IMDb account"> -->
 
-</form> 
-</div>    
+</form>
+<div class="line2"></div>  
+<div class="footer">
+    <a href="https://help.imdb.com/article/imdb/general-information/why-should-i-register-on-imdb/GHB62T7USTMYMCDC?ref_=cons_ap_ftr_help#">Help</a>
+    <a href="https://www.imdb.com/conditions">Conditions of Use</a>
+    <a href="https://www.imdb.com/privacy">Privacy Notice</a>
+</div>
+<p class="copyright">© 1996-2023, Amazon.com, Inc. or its affiliates<p>
+</div>
+  
 </body>
 </html>
 
