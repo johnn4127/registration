@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/imdb.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form action="/register" method="post">
+<div>
+    <legend> Registration </legend>
+    <% { %>
+        name: <input type="text" placeholder="First and last name" name="name"/><br><br>
+        email:<input type="email" name="email" value="dre@test.com" /><br><br>
+        password:<input type="password" placeholder="at least 8 characters" minlength="8" maxlength="25" name="password" value="secretpassword" /><br><br>
+        Re-enter password:<input type="password" name = "Re-enter Password" value = "secretpassword" /> <br><br>
+    <% } %>
+</div>
+<input type="submit" value="Create your IMDb account">
+
+</form>     
+</body>
+</html>
+
+
+
+
+

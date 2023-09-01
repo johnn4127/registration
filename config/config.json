@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "dbiauxkn",
+    "password": "vOSOPrvs9CLfg2RB9xD5jc3G7Pid2KI2",
+    "database": "dbiauxkn",
+    "host": "fanny.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
