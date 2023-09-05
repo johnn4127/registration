@@ -111,10 +111,10 @@ if (!passwordRegex.test(password)) {
       //  return res.render('register', { error: "All fields are required" }); --old code 
     }
     //username only string
-    const nameRegex = /^[A-Za-z]+$/;
-    
+    const nameRegex = /^[A-Za-z ]+$/; // Allow letters and space
+
     if (!nameRegex.test(name)) {
-        return res.status(400).send('Name should only contain letters (no numbers)');
+    return res.status(400).send('Name should only contain letters and spaces (no numbers or special characters)');
     }
     //
     //check password matches repassword
