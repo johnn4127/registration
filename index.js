@@ -102,7 +102,7 @@ app.post('/register', async (req, res) => {
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%^&*])[A-Za-z\d@#$!%^&*]{8,}$/;
 
 if (!passwordRegex.test(password)) {
-    return res.status(400).send('Password does not meet complexity requirements');
+    return res.status(400).send('Password does not meet requirements:Need one uppercase, one lowercase, one symbol, and one number');
   } 
   //
     //checks all fields are entered
