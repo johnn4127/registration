@@ -93,41 +93,42 @@ app.post('/login', async (req, res) => {
 
 app.post('/register', async (req, res) => {
     const { name, email, password, repassword } = req.body;
+    const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+  // Check if password contains a URL
+  if (urlRegex.test(password)) {
+    return res.status(400).send('Password should not contain a URL');
+}
+  //Password complexity check
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%^&*])[A-Za-z\d@#$!%^&*]{8,}$/;
+
+if (!passwordRegex.test(password)) {
+    return res.status(400).send('Password does not meet complexity requirements');
+  } 
+  //
     //checks all fields are entered
     if (!name || !email || !password || !repassword) {
         return res.status(400).send('All fields are required');
       //  return res.render('register', { error: "All fields are required" }); --old code 
     }
+    //username only string
+    const nameRegex = /^[A-Za-z]+$/;
+    
+    if (!nameRegex.test(name)) {
+        return res.status(400).send('Name should only contain letters (no numbers)');
+    }
+    //
     //check password matches repassword
     if (password !== repassword) {
         return res.status(400).send('Passwords do not match');
         
     }
-    //check password length
-    if (password.length < 8) {
-        return res.status(400).send('Password should be at least 8 characters long');
-        // return res.render('register', { error: "" }); ---- change to send error to error log
-    }
-    // Validate password is numeric
-    // console.log(typeof(password))
-    // if (typeof (password) !== 'number') {
-    //     return res.status(400).send('password should contain only numbers');
-        
-    // }
+   //Email existing
+    const existingEmail = await imbd.findOne({ where: { email: email } });
 
-    // Check for URLs in password
-    // if (containsUrl(password)) {
-    //     return res.status(400).send('Invalid input. URLs are not allowed');
-    // }
-    // // Validate email format
-    // if (!isValidEmail(email)) {
-    //     return res.render('register', { error: "Invalid email format" });
-    // }
-    // // Check for existing username and email
-    // const existingUser = users.find(user => user.username === name || user.email === email);
-    // if (existingUser) {
-    //     return res.render('register', { error: "Username or email is already registered" });
-    // }
+  if (existingEmail) {
+    return res.status(400).send('Email already registered');
+    
+  }
     // logger.info({
     //     level: 'info',
     //     method:req.method,

@@ -205,3 +205,11 @@
 {"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 3:59:57 PM","url":"/"},"service":"user-service"}
 {"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 4:00:33 PM","url":"/login"},"service":"user-service"}
 {"level":"info","message":{"body":{"email":"thetonyvu@yahoo.com","password":"ilovefood"},"level":"info","method":"POST","parameters":{},"timestamp":"9/1/2023, 4:00:36 PM","url":"/login"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 4:03:42 PM","url":"/"},"service":"user-service"}
+{"level":"info","message":{"body":{"email":"hienwin@gmail.com","name":"hien nguyen","password":"12345678","repassword":"12345678"},"level":"info","method":"POST","parameters":{},"timestamp":"9/1/2023, 4:04:33 PM","url":"/register"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 4:04:45 PM","url":"/login"},"service":"user-service"}
+{"level":"info","message":{"body":{"email":"hienwin@gmail.com","password":"12345678"},"level":"info","method":"POST","parameters":{},"timestamp":"9/1/2023, 4:05:00 PM","url":"/login"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/1/2023, 4:05:23 PM","url":"/login"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/5/2023, 9:07:34 AM","url":"/"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/5/2023, 9:07:49 AM","url":"/login"},"service":"user-service"}
+{"level":"info","message":{"body":{},"level":"info","method":"GET","parameters":{},"timestamp":"9/5/2023, 9:14:22 AM","url":"/"},"service":"user-service"}
